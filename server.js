@@ -11,7 +11,7 @@ app.use(express.static(folderPath))
 
 // renders your index.html
 app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname + '/index.html'));
+  res.sendFile(path.join(__dirname + '/test.html'));
 });
 
 //mount your other paths

@@ -1,10 +1,10 @@
-var express = require("express");
-var app     = express();
-var path    = require("path");
+var http = require('http');
+var fs = require('fs');
 
-
-app.get('/',function(req,res){
-  res.sendFile(path.join(__dirname+'/test.html'));
-});
-
-app.listen(3000);
+http.createServer(function(req, res){
+    fs.readFile('test.html',function (err, data){
+        res.writeHead(200, {'Content-Type': 'text/html','Content-Length':data.length});
+        res.write(data);
+        res.end();
+    });
+}).listen(8000);
